@@ -27,7 +27,7 @@ public class RandomIO {
             + Person.SIZE_AGE;
 
     // Default path of file
-    private final String PATH = "./data/";
+    private final String PATH = "data";
     private final String FILE_NAME = "RandomFileData.dat";
 
     private File file;

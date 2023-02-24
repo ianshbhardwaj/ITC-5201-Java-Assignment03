@@ -159,4 +159,7 @@ public class Person {
         return result;
     }
     // endregion
+
+    public void set(String text) {
+    }
 }

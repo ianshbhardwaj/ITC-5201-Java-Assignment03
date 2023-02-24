@@ -17,7 +17,7 @@ public class RandomResponse {
     // region Private members
     private RadomSignal signal;
     private String message;
-    private ArrayList<Person> personList;
+    public ArrayList<Person> personList;
 
     // endregion
 

@@ -14,7 +14,7 @@ import presentation.*;
  *
  */
 public class RandomDemo {
-    private final static String PATH = "./data/RandomFileData.dat";
+    private final static String PATH = "data/RandomFileData.dat";
 
     public static void main(String[] args) {
         JFrame frame = new RandomUI();

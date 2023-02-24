@@ -61,8 +61,8 @@ public class RandomUI extends JFrame {
         String phone;
 
         /** Call other files */
-        // private final static String PATH = "./data/RandomFileData.dat";
-        private final static String PATH = "src/RandomFileData.dat";
+        // private final static String PATH = "data/RandomFileData.dat";
+        private final static String PATH = "data/RandomFileData.dat";
 
         private RandomIO io;
         private RandomResponse response;
@@ -291,13 +291,13 @@ public class RandomUI extends JFrame {
                 bt1 = new JButton("Add");
                 bt1.setFont(btnFont);
                 bt1.setPreferredSize(new Dimension(160, 80));
-                // bt1.addActionListener(new AddListener());
+                 bt1.addActionListener(new AddListener());
 
                 /** Button 2, Find */
                 bt2 = new JButton("Find");
                 bt2.setFont(btnFont);
                 bt2.setPreferredSize(new Dimension(160, 80));
-                // bt2.addActionListener(new FindListener());
+                bt2.addActionListener(new FindListener());
 
                 /** Display 2 Buttons */
                 lowerPanel.setLayout(new GridLayout(1, 2, 70, 50)); // grid layout, add layout according to add
@@ -320,135 +320,135 @@ public class RandomUI extends JFrame {
                 return rightPanel;
         }
 
-        // /** Input data type in format */
-        // /** recordID, fname, lname, age, phone */
-        // public boolean valiation() {
-        //         boolean result = false;
+        /** Input data type in format */
+        /** recordID, fname, lname, age, phone */
+        public boolean valiation() {
+                boolean result = false;
 
-        //         if (recordIDTF.getText().length() == 0) {
-        //                 JOptionPane.showMessageDialog(middlePanel, "ID cannot be empty");
-        //                 result = false;
-        //         } else {
-        //                 result = true;
-        //         }
+                if (recordIDTF.getText().length() == 0) {
+                        JOptionPane.showMessageDialog(middlePanel, "ID cannot be empty");
+                        result = false;
+                } else {
+                        result = true;
+                }
 
-        //         if (fnameTF.getText().length() == 0) {
-        //                 JOptionPane.showMessageDialog(middlePanel, "First name cannot be empty");
-        //                 result = false;
-        //         } else {
-        //                 result = true;
-        //         }
-        //         if (lnameTF.getText().length() == 0) {
-        //                 JOptionPane.showMessageDialog(middlePanel, "Last name cannot be empty");
-        //                 result = false;
-        //         } else {
-        //                 result = true;
-        //         }
-        //         if (ageTF.getText().length() == 0) {
-        //                 JOptionPane.showMessageDialog(middlePanel, "Age cannot be empty");
-        //                 result = false;
-        //         } else {
-        //                 result = true;
-        //         }
-        //         if (phoneTF.getText().length() == 0) {
-        //                 JOptionPane.showMessageDialog(middlePanel, "Phone cannot be empty");
-        //                 result = false;
-        //         } else {
-        //                 result = true;
-        //         }
+                if (fnameTF.getText().length() == 0) {
+                        JOptionPane.showMessageDialog(middlePanel, "First name cannot be empty");
+                        result = false;
+                } else {
+                        result = true;
+                }
+                if (lnameTF.getText().length() == 0) {
+                        JOptionPane.showMessageDialog(middlePanel, "Last name cannot be empty");
+                        result = false;
+                } else {
+                        result = true;
+                }
+                if (ageTF.getText().length() == 0) {
+                        JOptionPane.showMessageDialog(middlePanel, "Age cannot be empty");
+                        result = false;
+                } else {
+                        result = true;
+                }
+                if (phoneTF.getText().length() == 0) {
+                        JOptionPane.showMessageDialog(middlePanel, "Phone cannot be empty");
+                        result = false;
+                } else {
+                        result = true;
+                }
 
-        //         return result;
-        // }
+                return result;
+        }
 
-        // public Person createPerson(){
-        //        Person person = new Person();
-        //         person.setID(Integer.parseInt(recordIDTF.getText()));
-        //         person.setFirstName(fnameTF.getText());
-        //         person.set(fnameTF.getText());
-        //         person.setID(Integer.parseInt(recordIDTF.getText()));
-        //         person.setID(Integer.parseInt(recordIDTF.getText()));
+        public Person createPerson(){
+               Person person = new Person();
+                person.setID(Integer.parseInt(recordIDTF.getText()));
+                person.setFirstName(fnameTF.getText());
+                person.set(fnameTF.getText());
+                person.setID(Integer.parseInt(recordIDTF.getText()));
+                person.setID(Integer.parseInt(recordIDTF.getText()));
 
 
-        //         return person;
-        // }
+                return person;
+        }
 
-        // /**
-        //  * Input data type in format
-        //  *
-        //  * I dont care do other places have any input, they will be covered by
-        //  * information after pressing button.
-        //  */
-        // public void findDataInput() {
-        //         if (recordIDTF.getText().length() == 0) {
-        //                 JOptionPane.showMessageDialog(middlePanel, "ID cannot be empty");
-        //         }
-        //         // else if ID not exit, show error
-        //         else {
-        //                 recordID = Integer.parseInt(recordIDTF.getText());
-        //         }
-        // }
+        /**
+         * Input data type in format
+         *
+         * I dont care do other places have any input, they will be covered by
+         * information after pressing button.
+         */
+        public void findDataInput() {
+                if (recordIDTF.getText().length() == 0) {
+                        JOptionPane.showMessageDialog(middlePanel, "ID cannot be empty");
+                }
+                // else if ID not exit, show error
+                else {
+                        recordID = Integer.parseInt(recordIDTF.getText());
+                }
+        }
 
-        // /** Add Button Listener */
-        // class AddListener implements ActionListener {
-        //         @Override
-        //         public void actionPerformed(ActionEvent e) {
+        /** Add Button Listener */
+        class AddListener implements ActionListener {
+                @Override
+                public void actionPerformed(ActionEvent e) {
 
-        //                 boolean flag = valiation();// 验证输入
+                        boolean flag = valiation();// 验证输入
 
-        //                 if (flag == true) {
-        //                         Person person = createPerson();
-        //                         response = io.addPerson(person);
-        //                         if (response.getSignal() == RadomSignal.SUCCESS) {
-        //                                 JOptionPane.showMessageDialog(middlePanel, response.getMessage());
-        //                         } else {
-        //                                 JOptionPane.showMessageDialog(middlePanel, response.getMessage());
-        //                         }
-        //                 }
-        //         }
+                        if (flag == true) {
+                                Person person = createPerson();
+                                response = io.addPerson(person);
+                                if (response.getSignal() == RadomSignal.SUCCESS) {
+                                        JOptionPane.showMessageDialog(middlePanel, response.getMessage());
+                                } else {
+                                        JOptionPane.showMessageDialog(middlePanel, response.getMessage());
+                                }
+                        }
+                }
 
-        // }
+        }
 
-        // class FindListener implements ActionListener {
-        //         @Override
-        //         public void actionPerformed(ActionEvent e) {
+        class FindListener implements ActionListener {
+                @Override
+                public void actionPerformed(ActionEvent e) {
 
-        //                 try {
-        //                         /** Create Variables */
-        //                         findDataInput();
+                        try {
+                                /** Create Variables */
+                                findDataInput();
 
-        //                         try {
-        //                                 /** Call function and arraylist */
-        //                                 io.findPerson(recordID);
-        //                                 RandomResponse response1 = io.findPerson(recordID);
-        //                                 System.out.println(response1);
-        //                                 ArrayList<Person> resultList = response1.personList;
-        //                                 System.out.println(resultList);
-        //                                 System.out.println(resultList.size());
-        //                                 /** Use message Window to display results */
-        //                                 JOptionPane.showMessageDialog(middlePanel, "Find Person with ID: " +
-        //                                                 recordID);
+                                try {
+                                        /** Call function and arraylist */
+                                        io.findPerson(recordID);
+                                        RandomResponse response1 = io.findPerson(recordID);
+                                        System.out.println(response1);
+                                        ArrayList<Person> resultList = response1.personList;
+                                        System.out.println(resultList);
+                                        System.out.println(resultList.size());
+                                        /** Use message Window to display results */
+                                        JOptionPane.showMessageDialog(middlePanel, "Find Person with ID: " +
+                                                        recordID);
 
-        //                                 // recordIDTF.setText("");
-        //                                 // fnameTF.setText("aaa");
-        //                                 // lnameTF.setText("bbb");
-        //                                 // ageTF.setText(String.valueOf(123));
-        //                                 // phoneTF.setText(String.valueOf(123456));
+                                        // recordIDTF.setText("");
+                                        // fnameTF.setText("aaa");
+                                        // lnameTF.setText("bbb");
+                                        // ageTF.setText(String.valueOf(123));
+                                        // phoneTF.setText(String.valueOf(123456));
 
-        //                                 // recordIDTF.setText("");
-        //                                 fnameTF.setText(String.valueOf(resultList.get(1)));
-        //                                 lnameTF.setText(String.valueOf(resultList.get(2)));
-        //                                 ageTF.setText(String.valueOf(resultList.get(3)));
-        //                                 phoneTF.setText(String.valueOf(resultList.get(4)));
+                                        // recordIDTF.setText("");
+                                        fnameTF.setText(String.valueOf(resultList.get(1)));
+                                        lnameTF.setText(String.valueOf(resultList.get(2)));
+                                        ageTF.setText(String.valueOf(resultList.get(3)));
+                                        phoneTF.setText(String.valueOf(resultList.get(4)));
 
-        //                         } catch (Exception ex) {
-        //                                 ex.printStackTrace();
-        //                         }
+                                } catch (Exception ex) {
+                                        ex.printStackTrace();
+                                }
 
-        //                 } catch (Exception ex) {
-        //                         ex.printStackTrace();
-        //                 }
-        //         }
-        // }
+                        } catch (Exception ex) {
+                                ex.printStackTrace();
+                        }
+                }
+        }
 
         /**
          * The inner class of Document, extending the super class of PlainDocument.
